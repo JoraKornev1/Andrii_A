@@ -21,6 +21,8 @@ After completing these steps, you should be able to answer (and understand why) 
 - What is immutability? What is the benefit of using it?
 - What is cloning? What is copying? How do they compare?
 - What is RAII? How is it implemented in [Rust]? What is the benefit of using it?
+Получение ресурса есть инициализация (англ. Resource Acquisition Is Initialization (RAII)) — программная идиома, смысл которой заключается в том, что с помощью тех или иных программных механизмов получение некоторого ресурса неразрывно совмещается с инициализацией, а освобождение — с уничтожением объекта.
+Примітка. У C++ цей шаблон звільнення ресурсів наприкінці життєвого циклу елемента іноді називають « Отримання ресурсу є ініціалізацією» (RAII) . Функція dropв Rust буде вам знайома, якщо ви користувалисяRAII візерунки.
 - What is an iterator? What is a collection? How do they differ? How are they used?
 - What are macros? Which problems do they solve? What is the difference between declarative and procedural macro?
 - How code is tested in [Rust]? Where should you put tests and why?
