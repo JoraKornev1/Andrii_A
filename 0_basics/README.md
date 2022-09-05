@@ -55,12 +55,18 @@ After completing these steps, you should be able to answer (and understand why) 
         
         
 - How code is tested in [Rust]? Where should you put tests and why?
+        Тест у Rust — це функція, анотована test атрибутом.
         За допомогою модулю Test та атрибутам тест можна писати функції які будуть тестувати потрібну вам логіку програми що не може зробити компілятор.
         Тести особливо важливі в бібліотеках, так як їх не можна запустити як виконуваний файл. 
 - Why [Rust] has `&str` and `String` types? How do they differ? When should you use them?
-        
+        String - вектор байтів, краще використоувати якщо потрібне володіння та передача володіння
+        &str - слайс, якщо потрібне тільки для читання.
 - What are lifetimes? Which problems do they solve? Which benefits do they give?
+        Тривалість життя посилань. Необхідно для того щоб забеспечити гарантію того що посилання буде валідним при його виклику. 
+        Переваги - безпека.
 - Is [Rust] OOP language? Is it possible to use SOLID/GRASP? Does it have an inheritance?
+        У спільноті програмістів немає консенсусу щодо того, які функції потрібні мові, щоб називатися об’єктно-орієнтованою. На Rust впливає багато             різних парадигм програмування, включаючи ООП; ми досліджували, наприклад, особливості функціонального програмування в розділі 13. Можна                   стверджувати, що об’єктно-орієнтовані мови програмування дійсно мають певні спільні характеристики, а саме об’єкти, інкапсуляцію та успадкування. 
+        Успадкування в расті немає, але є дещо схоже, а можливо навіть і краще рішення це трейти. 
 
 After you're done notify your lead in an appropriate PR (pull request), and he will exam what you have learned.
 
