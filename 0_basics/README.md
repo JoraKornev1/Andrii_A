@@ -13,20 +13,34 @@ After completing these steps, you should be able to answer (and understand why) 
 - What memory model [Rust] has? Is it single-threaded or multiple-threaded? Is it synchronous or asynchronous?
 - What runtime [Rust] has? Does it use a GC (garbage collector)?
 - What statically typing means? What is a benefit of using it?
+        Знає який тип данних кожного об'єкту під час компіляції. 
+
 - What are generics and parametric polymorphism? Which problems do they solve?
+        Дженерік типи - типи які можуть приймати будь який тип, що по суті і є поліморфізмом. 
+
 - What are traits? How are they used? How do they compare to interfaces? What are an auto trait and a blanket impl? What is a marker trait?
+Трейт — це функція мови, яка повідомляє компілятору Rust про функціональні можливості, які має надавати тип.
+Blanket impl Це реалізація риси або для всіх типів, або для всіх типів, які відповідають певній умові. Наприклад, бібліотека stdandard має таке значення:
+impl<T> ToString for T where
+    T: Display + ?Sized,
+{ ... }
+Це загальний impl, який реалізує ToStringдля всіх типів, які реалізують Display ознаку.
+auto trait - https://doc.rust-lang.org/beta/unstable-book/language-features/auto-traits.html
+
 - What are static and dynamic dispatches? Which should I use, and when?
+Код, отриманий у результаті мономорфізації, виконує статичну диспетчеризацію , коли компілятор знає, який метод ви викликаєте під час компіляції. Це протиставляєтьсядинамічний dispatch , коли компілятор не може визначити під час компіляції, який метод ви викликаєте. вдинамічнийу випадках диспетчеризації, компілятор видає код, який під час виконання визначає, який метод викликати.
 - What is a crate and what is a module in Rust? How do they differ? How are the used?
+Crate - пакет, module - окремий модуль або файл.
 - What are move semantics? What are borrowing rules? What is the benefit of using them?
 <!-- Move semantics здійснюється за допомогою посилань. Може бути або декілька простих посилань, або одне мутабельне посилання. -->
 - What is immutability? What is the benefit of using it?
 - What is cloning? What is copying? How do they compare?
-<!-- - Яка різниця між Copyі Clone?
-Копії відбуваються неявно, наприклад, як частина призначення y = x. Поведінка Copyне перевантажується; це завжди проста побітова копія.
+<!-- - Яка різниця між Copy і Clone?
+Копії відбуваються неявно, наприклад, як частина призначення y = x. Поведінка Copy не перевантажується; це завжди проста побітова копія.
 
-Клонування — це явна дія, x.clone(). Реалізація Cloneможе забезпечити будь-яку специфічну для типу поведінку, необхідну для безпечного дублювання значень. Наприклад, реалізація Clonefor Stringпотребує копіювання буфера рядків із вказівником у купу. Проста порозрядна копія Stringзначень просто скопіює вказівник, що призведе до подвійного вільного рядка. З цієї причини Stringє , Clone але не Copy.
+Клонування — це явна дія, x.clone(). Реалізація Cloneможе забезпечити будь-яку специфічну для типу поведінку, необхідну для безпечного дублювання значень. Наприклад, реалізація Clone for String потребує копіювання буфера рядків із вказівником у купу. Проста порозрядна копія String значень просто скопіює вказівник, що призведе до подвійного вільного рядка. З цієї причини Stringє , Clone але не Copy.
 
-Cloneє суперрисою Copy, тому все, що є, Copyмає також реалізувати Clone. Якщо тип є, Copyто його Cloneреалізація має лише повертати *self (див. приклад вище). -->
+Clone є суперрисою Copy, тому все, що є, Copy має також реалізувати Clone. Якщо тип є, Copy то його Clone реалізація має лише повертати *self (див. приклад вище). -->
 - What is RAII? How is it implemented in [Rust]? What is the benefit of using it?
 <!-- Получение ресурса есть инициализация (англ. Resource Acquisition Is Initialization (RAII)) — программная идиома, смысл которой заключается в том, что с помощью тех или иных программных механизмов получение некоторого ресурса неразрывно совмещается с инициализацией, а освобождение — с уничтожением объекта.
 Примітка. У C++ цей шаблон звільнення ресурсів наприкінці життєвого циклу елемента іноді називають « Отримання ресурсу є ініціалізацією» (RAII) . Функція dropв Rust буде вам знайома, якщо ви користувалисяRAII візерунки. -->
