@@ -18,11 +18,18 @@ After completing these steps, you should be able to answer (and understand why) 
 - What are static and dynamic dispatches? Which should I use, and when?
 - What is a crate and what is a module in Rust? How do they differ? How are the used?
 - What are move semantics? What are borrowing rules? What is the benefit of using them?
+<!-- Move semantics здійснюється за допомогою посилань. Може бути або декілька простих посилань, або одне мутабельне посилання. -->
 - What is immutability? What is the benefit of using it?
 - What is cloning? What is copying? How do they compare?
+<!-- - Яка різниця між Copyі Clone?
+Копії відбуваються неявно, наприклад, як частина призначення y = x. Поведінка Copyне перевантажується; це завжди проста побітова копія.
+
+Клонування — це явна дія, x.clone(). Реалізація Cloneможе забезпечити будь-яку специфічну для типу поведінку, необхідну для безпечного дублювання значень. Наприклад, реалізація Clonefor Stringпотребує копіювання буфера рядків із вказівником у купу. Проста порозрядна копія Stringзначень просто скопіює вказівник, що призведе до подвійного вільного рядка. З цієї причини Stringє , Clone але не Copy.
+
+Cloneє суперрисою Copy, тому все, що є, Copyмає також реалізувати Clone. Якщо тип є, Copyто його Cloneреалізація має лише повертати *self (див. приклад вище). -->
 - What is RAII? How is it implemented in [Rust]? What is the benefit of using it?
-Получение ресурса есть инициализация (англ. Resource Acquisition Is Initialization (RAII)) — программная идиома, смысл которой заключается в том, что с помощью тех или иных программных механизмов получение некоторого ресурса неразрывно совмещается с инициализацией, а освобождение — с уничтожением объекта.
-Примітка. У C++ цей шаблон звільнення ресурсів наприкінці життєвого циклу елемента іноді називають « Отримання ресурсу є ініціалізацією» (RAII) . Функція dropв Rust буде вам знайома, якщо ви користувалисяRAII візерунки.
+<!-- Получение ресурса есть инициализация (англ. Resource Acquisition Is Initialization (RAII)) — программная идиома, смысл которой заключается в том, что с помощью тех или иных программных механизмов получение некоторого ресурса неразрывно совмещается с инициализацией, а освобождение — с уничтожением объекта.
+Примітка. У C++ цей шаблон звільнення ресурсів наприкінці життєвого циклу елемента іноді називають « Отримання ресурсу є ініціалізацією» (RAII) . Функція dropв Rust буде вам знайома, якщо ви користувалисяRAII візерунки. -->
 - What is an iterator? What is a collection? How do they differ? How are they used?
 - What are macros? Which problems do they solve? What is the difference between declarative and procedural macro?
 - How code is tested in [Rust]? Where should you put tests and why?
